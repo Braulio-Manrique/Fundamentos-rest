@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -17,5 +18,5 @@ public class Transaccion {
     private int cuentaorigenid;
     private int cuentadestinoid;
     private double monto;
-    private Date fecha;
+    private LocalDateTime fecha;
 }
