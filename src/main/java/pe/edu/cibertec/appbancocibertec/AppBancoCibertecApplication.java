@@ -2,6 +2,9 @@ package pe.edu.cibertec.appbancocibertec;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class AppBancoCibertecApplication {
@@ -10,4 +13,15 @@ public class AppBancoCibertecApplication {
         SpringApplication.run(AppBancoCibertecApplication.class, args);
     }
 
+
+
+    @Bean
+public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("api/v1/**").allowedMethods("GET", "POST", "PUT").allowedOrigins("http://frontbancocibertec.com");
+            }
+        };
+    }
 }
